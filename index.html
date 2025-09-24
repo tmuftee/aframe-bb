@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AR Model Viewer</title>
+    <title>BestBridges Composite Bridge</title>
     <!-- Import the Model Viewer web component -->
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <!-- Import Tailwind CSS for styling -->
@@ -18,11 +18,9 @@
 </head>
 <body class="bg-gray-900 text-white font-sans flex items-center justify-center p-4 min-h-screen">
     <div class="w-full h-[90vh] bg-gray-800 rounded-2xl shadow-xl flex flex-col p-6">
-        <h1 class="text-3xl sm:text-4xl font-bold mb-4 text-center">AR Model Viewer</h1>
+        <h1 class="text-3xl sm:text-4xl font-bold mb-4 text-center">BestBridges Composite Bridge</h1>
         <p class="text-gray-400 text-center mb-6 max-w-lg mx-auto">
-            This app allows you to view a 3D model in augmented reality.
-            On Android, tap the AR button to launch the AR experience.
-            To use your own model, replace the `src` attribute value below with your hosted GLTF file URL.
+            Lightweight and prefabricated bridges that can be deployed seamlessly with customizable parapets
         </p>
 
         <!-- The model-viewer component for displaying and interacting with the 3D model -->
@@ -30,6 +28,7 @@
             - src: The path to the glTF or glb file. Replace this with your own URL.
             - ar: Enables the AR feature.
             - ar-modes: Specifies the AR modes to use. 'scene-viewer' is for Android.
+            - ar-placement: Instructs the model to place on a detected horizontal plane (floor).
             - camera-controls: Allows the user to rotate and zoom the model with touch gestures.
             - touch-action: Prevents default browser gestures from interfering.
             - shadow-intensity: Adjusts the shadow strength for a more realistic look.
@@ -40,6 +39,7 @@
                 alt="A 3D model of an astronaut"
                 ar
                 ar-modes="webxr scene-viewer quick-look"
+                ar-placement="floor"
                 camera-controls
                 shadow-intensity="1"
                 touch-action="none"
