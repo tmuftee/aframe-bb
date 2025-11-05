@@ -19,7 +19,8 @@
 <!-- NOTE: Using standard Tailwind colors (e.g., bg-stone-50, text-neutral-800) for visual consistency as 'bg-stone-80' is not a standard Tailwind class. -->
 <body class="bg-stone-50 text-neutral-800 font-sans flex items-center justify-center p-4 min-h-screen">
     <div class="w-full h-[90vh] bg-white rounded-2xl shadow-xl flex flex-col p-6">
-        <h1 class="text-4xl font-bold mb-4 text-center">BestBridges</h1>
+        <a href="https://bestbridges.eu/"><img src="https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/logo_bb_black.png"  width="40" height="40"></a>
+        <h1 class="text-4xl text-neutral-600 font-bold mb-4 text-center">BestBridges</h1>
         <h2 class="text-2xl font-normal mb-4 text-center">Steel Beam Bridge</h2>
         <p class="text-neutral-600 text-center mb-6 max-w-lg mx-auto">
             Customizable Steel Beam Bridge Offering Endless Customizability
@@ -35,7 +36,8 @@
                 ar-modes="scene-viewer quick-look"
                 ar-placement="floor"
                 camera-controls
-                shadow-intensity="1"
+                shadow-intensity="2"
+                shadow-softness="1"
                 touch-action="none"
                 scale="0.1 0.1 0.1"
                 class="rounded-xl"
@@ -47,18 +49,18 @@
         <div class="mt-6 flex flex-col items-center">
             <!-- Updated label to use flex layout for horizontal alignment -->
             <label for="railing-select" class="flex items-center space-x-3 text-neutral-800 font-semibold mb-2">
-                <span>Railing</span>
+                <span>Select Railing</span>
                 <select id="railing-select" class="bg-gray-700 text-white border border-neutral-300 rounded-md p-2 max-w-xs text-center focus:ring-2 focus:ring-sky-600 focus:border-transparent transition-colors duration-200">
                     <option value="railing1">Timber Railing A</option>
                     <option value="railing2">Timber Railing B</option>
                     <option value="railing3">Timber Railing C</option>
-                    <option value="railing4">Railing 4</option>
-                    <option value="railing5">Railing 5</option>
-                    <option value="railing6">Railing 6</option>
-                    <option value="railing7">Railing 7</option>
-                    <option value="railing8">Railing 8</option>
-                    <option value="railing9">Railing 9</option>
-                    <option value="railing10">Railing 10</option>
+                    <option value="railing4">Timber Railing D</option>
+                    <option value="railing5">Reed View</option>
+                    <option value="railing6">Arel</option>
+                    <option value="railing7">Box Rail</option>
+                    <option value="railing8">Fiberline</option>
+                    <option value="railing9">Glass Railing</option>
+                    <option value="railing10">Steel Railing</option>
                 </select>
             </label>
         </div>
@@ -73,13 +75,13 @@
             railing1: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_TimberA.gltf',
             railing2: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_TimberB.gltf',
             railing3: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_TimberC.gltf',
-            railing4: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/SmallTest.gltf',
-            railing5: 'https://modelviewer.dev/shared-assets/models/Shishkebab.glb',
-            railing6: 'https://modelviewer.dev/shared-assets/models/Stork.glb',
-            railing7: 'https://modelviewer.dev/shared-assets/models/Horse.glb',
-            railing8: 'https://modelviewer.dev/shared-assets/models/CesiumMilkTruck.glb',
-            railing9: 'https://modelviewer.dev/shared-assets/models/OrientationTest.gltf',
-            railing10: 'https://modelviewer.dev/shared-assets/models/T-Rex.glb'
+            railing4: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_TimberD.gltf',
+            railing5: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_Reed.gltf',
+            railing6: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_Arel.gltf',
+            railing7: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_BoxRail.gltf',
+            railing8: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_Fiberline.gltf',
+            railing9: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_Glass.gltf',
+            railing10: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_Steel.gltf'
         };
 
         // Add an event listener to the dropdown list
