@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BestBridges</title>
+    <title>BestBridges Composite Bridge</title>
     <!-- Import the Model Viewer web component -->
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <!-- Import Tailwind CSS for styling -->
@@ -18,35 +18,72 @@
 </head>
 <body class="bg-gray-900 text-white font-sans flex items-center justify-center p-4 min-h-screen">
     <div class="w-full h-[90vh] bg-gray-800 rounded-2xl shadow-xl flex flex-col p-6">
-        <h1 class="text-3xl sm:text-4xl font-bold mb-4 text-center">BestBridges Composite Bridge</h1>
+        <h1 class="text-3xl sm:text-4xl font-bold mb-4 text-center">BestBridges Beam Bridge</h1>
         <p class="text-gray-400 text-center mb-6 max-w-lg mx-auto">
-            Lightweight and prefabricated bridges that can be deployed seamlessly with customizable parapets
+            Customizable Steel Beam Bridge Offering Endless Customizability
         </p>
 
         <!-- The model-viewer component for displaying and interacting with the 3D model -->
-        <!-- Key attributes:
-            - src: The path to the glTF or glb file. Replace this with your own URL.
-            - ar: Enables the AR feature.
-            - ar-modes: Specifies the AR modes to use. 'scene-viewer' is for Android.
-            - ar-placement: Instructs the model to place on a detected horizontal plane (floor).
-            - camera-controls: Allows the user to rotate and zoom the model with touch gestures.
-            - touch-action: Prevents default browser gestures from interfering.
-            - shadow-intensity: Adjusts the shadow strength for a more realistic look.
-        -->
         <div class="flex-grow rounded-xl overflow-hidden">
             <model-viewer
-                src="https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/TestMaterial1.glb"
-                alt="A 3D model of an astronaut"
+                id="model-viewer"
+                src="https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_TimberA.gltf"
+                alt="BestBridges Steel Beam Bridge"
                 ar
                 ar-modes="scene-viewer quick-look"
                 ar-placement="floor"
                 camera-controls
-                scale="0.1 0.1 0.1"
                 shadow-intensity="1"
                 touch-action="none"
+                scale="0.1 0.1 0.1"
                 class="rounded-xl"
+                environment-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.hdr"
+                skybox-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.hdr"
+                exposure="1.2"
             ></model-viewer>
         </div>
+        
+        <!-- Dropdown list for model selection -->
+        <div class="mt-6 flex flex-col items-center">
+            <label for="railing-select" class="text-gray-300 font-semibold mb-2">Railing</label>
+            <select id="railing-select" class="bg-gray-700 text-white rounded-md p-2 w-full max-w-xs text-center focus:ring-2 focus:ring-sky-400 focus:border-transparent transition-colors duration-200">
+                <option value="railing1">Timber Railing A</option>
+                <option value="railing2">Railing 2</option>
+                <option value="railing3">Railing 3</option>
+                <option value="railing4">Railing 4</option>
+                <option value="railing5">Railing 5</option>
+                <option value="railing6">Railing 6</option>
+                <option value="railing7">Railing 7</option>
+                <option value="railing8">Railing 8</option>
+                <option value="railing9">Railing 9</option>
+                <option value="railing10">Railing 10</option>
+            </select>
+        </div>
     </div>
+    
+    <script>
+        const modelViewer = document.getElementById('model-viewer');
+        const railingSelect = document.getElementById('railing-select');
+
+        // Define a mapping of dropdown values to model URLs
+        const modelSources = {
+            railing1: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_TimberA.gltf',
+            railing2: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/TestMaterial1.glb',
+            railing3: 'https://modelviewer.dev/shared-assets/models/RobotExpressive.glb',
+            railing4: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/SmallTest.gltf',
+            railing5: 'https://modelviewer.dev/shared-assets/models/Shishkebab.glb',
+            railing6: 'https://modelviewer.dev/shared-assets/models/Stork.glb',
+            railing7: 'https://modelviewer.dev/shared-assets/models/Horse.glb',
+            railing8: 'https://modelviewer.dev/shared-assets/models/CesiumMilkTruck.glb',
+            railing9: 'https://modelviewer.dev/shared-assets/models/OrientationTest.gltf',
+            railing10: 'https://modelviewer.dev/shared-assets/models/T-Rex.glb'
+        };
+
+        // Add an event listener to the dropdown list
+        railingSelect.addEventListener('change', (event) => {
+            const selectedValue = event.target.value;
+            modelViewer.src = modelSources[selectedValue];
+        });
+    </script>
 </body>
 </html>
