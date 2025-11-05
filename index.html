@@ -16,15 +16,17 @@
         }
     </style>
 </head>
-<body class="bg-gray-900 text-white font-sans flex items-center justify-center p-4 min-h-screen">
-    <div class="w-full h-[90vh] bg-gray-800 rounded-2xl shadow-xl flex flex-col p-6">
-        <h1 class="text-3xl sm:text-4xl font-bold mb-4 text-center">BestBridges Beam Bridge</h1>
-        <p class="text-gray-400 text-center mb-6 max-w-lg mx-auto">
+<!-- NOTE: Using standard Tailwind colors (e.g., bg-stone-50, text-neutral-800) for visual consistency as 'bg-stone-80' is not a standard Tailwind class. -->
+<body class="bg-stone-50 text-neutral-800 font-sans flex items-center justify-center p-4 min-h-screen">
+    <div class="w-full h-[90vh] bg-white rounded-2xl shadow-xl flex flex-col p-6">
+        <h1 class="text-4xl font-bold mb-4 text-center">BestBridges</h1>
+        <h2 class="text-2xl font-normal mb-4 text-center">Steel Beam Bridge</h2>
+        <p class="text-neutral-600 text-center mb-6 max-w-lg mx-auto">
             Customizable Steel Beam Bridge Offering Endless Customizability
         </p>
 
         <!-- The model-viewer component for displaying and interacting with the 3D model -->
-        <div class="flex-grow rounded-xl overflow-hidden">
+        <div class="flex-grow">
             <model-viewer
                 id="model-viewer"
                 src="https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_TimberA.gltf"
@@ -37,27 +39,28 @@
                 touch-action="none"
                 scale="0.1 0.1 0.1"
                 class="rounded-xl"
-                environment-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.hdr"
-                skybox-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.hdr"
-                exposure="1.2"
+                exposure="1.0"
             ></model-viewer>
         </div>
         
         <!-- Dropdown list for model selection -->
         <div class="mt-6 flex flex-col items-center">
-            <label for="railing-select" class="text-gray-300 font-semibold mb-2">Railing</label>
-            <select id="railing-select" class="bg-gray-700 text-white rounded-md p-2 w-full max-w-xs text-center focus:ring-2 focus:ring-sky-400 focus:border-transparent transition-colors duration-200">
-                <option value="railing1">Timber Railing A</option>
-                <option value="railing2">Railing 2</option>
-                <option value="railing3">Railing 3</option>
-                <option value="railing4">Railing 4</option>
-                <option value="railing5">Railing 5</option>
-                <option value="railing6">Railing 6</option>
-                <option value="railing7">Railing 7</option>
-                <option value="railing8">Railing 8</option>
-                <option value="railing9">Railing 9</option>
-                <option value="railing10">Railing 10</option>
-            </select>
+            <!-- Updated label to use flex layout for horizontal alignment -->
+            <label for="railing-select" class="flex items-center space-x-3 text-neutral-800 font-semibold mb-2">
+                <span>Railing</span>
+                <select id="railing-select" class="bg-gray-700 text-white border border-neutral-300 rounded-md p-2 max-w-xs text-center focus:ring-2 focus:ring-sky-600 focus:border-transparent transition-colors duration-200">
+                    <option value="railing1">Timber Railing A</option>
+                    <option value="railing2">Timber Railing B</option>
+                    <option value="railing3">Timber Railing C</option>
+                    <option value="railing4">Railing 4</option>
+                    <option value="railing5">Railing 5</option>
+                    <option value="railing6">Railing 6</option>
+                    <option value="railing7">Railing 7</option>
+                    <option value="railing8">Railing 8</option>
+                    <option value="railing9">Railing 9</option>
+                    <option value="railing10">Railing 10</option>
+                </select>
+            </label>
         </div>
     </div>
     
@@ -68,8 +71,8 @@
         // Define a mapping of dropdown values to model URLs
         const modelSources = {
             railing1: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_TimberA.gltf',
-            railing2: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/TestMaterial1.glb',
-            railing3: 'https://modelviewer.dev/shared-assets/models/RobotExpressive.glb',
+            railing2: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_TimberB.gltf',
+            railing3: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_TimberC.gltf',
             railing4: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/SmallTest.gltf',
             railing5: 'https://modelviewer.dev/shared-assets/models/Shishkebab.glb',
             railing6: 'https://modelviewer.dev/shared-assets/models/Stork.glb',
