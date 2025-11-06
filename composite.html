@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BestBridges Steel Beam Bridge</title>
+    <title>BestBridges Composite Bridge</title>
     <!-- Import the Model Viewer web component -->
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <!-- Import Tailwind CSS for styling -->
@@ -21,16 +21,16 @@
     <div class="w-full h-[90vh] bg-white rounded-2xl shadow-xl flex flex-col p-6">
         <a href="https://bestbridges.eu/"><img src="https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/logo_bb_black.png"  width="40" height="40"></a>
         <h1 class="text-4xl text-neutral-600 font-bold mb-4 text-center">BestBridges</h1>
-        <h2 class="text-2xl font-normal mb-4 text-center">Steel Beam Bridge</h2>
+        <h2 class="text-2xl font-normal mb-4 text-center">Composite Bridge</h2>
         <p class="text-neutral-600 text-center mb-6 max-w-lg mx-auto">
-            Customizable Steel Beam Bridge Offering Endless Customizability
+            Lightweight Pre-fabricated Sustainable Bridges
         </p>
 
         <!-- The model-viewer component for displaying and interacting with the 3D model -->
         <div class="flex-grow">
             <model-viewer
                 id="model-viewer"
-                src="https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_TimberA.gltf"
+                src="https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Composite_Arel.gltf"
                 alt="BestBridges Steel Beam Bridge"
                 ar
                 ar-modes="scene-viewer quick-look"
@@ -51,16 +51,10 @@
             <label for="railing-select" class="flex items-center space-x-3 text-neutral-800 font-semibold mb-2">
                 <span>Select Railing</span>
                 <select id="railing-select" class="bg-gray-700 text-white border border-neutral-300 rounded-md p-2 max-w-xs text-center focus:ring-2 focus:ring-sky-600 focus:border-transparent transition-colors duration-200">
-                    <option value="railing1">Timber Railing A</option>
-                    <option value="railing2">Timber Railing B</option>
-                    <option value="railing3">Timber Railing C</option>
-                    <option value="railing4">Timber Railing D</option>
-                    <option value="railing5">Reed View</option>
-                    <option value="railing6">Arel</option>
-                    <option value="railing7">Box Rail</option>
-                    <option value="railing8">Fiberline</option>
-                    <option value="railing9">Glass Railing</option>
-                    <option value="railing10">Steel Railing</option>
+                    <option value="railing1">Arel Railing</option>
+                    <option value="railing2">Composite Railing</option>
+                    <option value="railing3">Glass Railing</option>
+                    <option value="railing4">Steel Railing</option>
                 </select>
             </label>
         </div>
@@ -72,16 +66,10 @@
 
         // Define a mapping of dropdown values to model URLs
         const modelSources = {
-            railing1: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_TimberA.gltf',
-            railing2: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_TimberB.gltf',
-            railing3: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_TimberC.gltf',
-            railing4: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_TimberD.gltf',
-            railing5: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_Reed.gltf',
-            railing6: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_Arel.gltf',
-            railing7: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_BoxRail.gltf',
-            railing8: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_Fiberline2.gltf',
-            railing9: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_Glass2.gltf',
-            railing10: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_Steel.gltf'
+            railing1: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Composite_Arel.gltf',
+            railing2: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Composite_Fiber.gltf',
+            railing3: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Composite_Glass.gltf',
+            railing4: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Composite_Steel.gltf'
         };
 
         // Add an event listener to the dropdown list
