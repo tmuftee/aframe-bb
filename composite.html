@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BestBridges Composite Bridge</title>
     <!-- Import the Model Viewer web component -->
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <script type="module" src="https://unpkg.com/@google/model-viewer@4.4.0/dist/model-viewer.min.js"></script>
     <!-- Import Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -30,7 +30,8 @@
         <div class="flex-grow">
             <model-viewer
                 id="model-viewer"
-                src="https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Composite_Arel.gltf"
+                src="https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Composite_Arel.glb"
+                ios-src="https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/usdz/Composite_Arel.usdz"
                 alt="BestBridges Steel Beam Bridge"
                 ar
                 ar-modes="scene-viewer quick-look"
@@ -64,18 +65,19 @@
         const modelViewer = document.getElementById('model-viewer');
         const railingSelect = document.getElementById('railing-select');
 
-        // Define a mapping of dropdown values to model URLs
+        // Define a mapping of dropdown values to model URLs (glb for the 3D/AR viewer, usdz for iOS Quick Look)
         const modelSources = {
-            railing1: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Composite_Arel.gltf',
-            railing2: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Composite_Fiber.gltf',
-            railing3: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Composite_Glass.gltf',
-            railing4: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Composite_Steel.gltf'
+            railing1: { src: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Composite_Arel.glb', ios: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/usdz/Composite_Arel.usdz' },
+            railing2: { src: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Composite_Fiber.glb', ios: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/usdz/Composite_Fiber.usdz' },
+            railing3: { src: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Composite_Glass.glb', ios: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/usdz/Composite_Glass.usdz' },
+            railing4: { src: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Composite_Steel.glb', ios: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/usdz/Composite_Steel.usdz' }
         };
 
         // Add an event listener to the dropdown list
         railingSelect.addEventListener('change', (event) => {
-            const selectedValue = event.target.value;
-            modelViewer.src = modelSources[selectedValue];
+            const selected = modelSources[event.target.value];
+            modelViewer.src = selected.src;
+            modelViewer.iosSrc = selected.ios;
         });
     </script>
 </body>

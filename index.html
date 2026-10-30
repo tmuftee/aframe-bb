@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BestBridges Steel Beam Bridge</title>
     <!-- Import the Model Viewer web component -->
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <script type="module" src="https://unpkg.com/@google/model-viewer@4.4.0/dist/model-viewer.min.js"></script>
     <!-- Import Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -30,7 +30,8 @@
         <div class="flex-grow">
             <model-viewer
                 id="model-viewer"
-                src="https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_TimberA.gltf"
+                src="https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_TimberA.glb"
+                ios-src="https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/usdz/Beam_TimberA.usdz"
                 alt="BestBridges Steel Beam Bridge"
                 ar
                 ar-modes="scene-viewer quick-look"
@@ -70,24 +71,25 @@
         const modelViewer = document.getElementById('model-viewer');
         const railingSelect = document.getElementById('railing-select');
 
-        // Define a mapping of dropdown values to model URLs
+        // Define a mapping of dropdown values to model URLs (glb for the 3D/AR viewer, usdz for iOS Quick Look)
         const modelSources = {
-            railing1: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_TimberA.gltf',
-            railing2: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_TimberB.gltf',
-            railing3: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_TimberC.gltf',
-            railing4: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_TimberD.gltf',
-            railing5: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_Reed.gltf',
-            railing6: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_Arel.gltf',
-            railing7: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_BoxRail.gltf',
-            railing8: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_Fiberline2.gltf',
-            railing9: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_Glass2.gltf',
-            railing10: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_Steel.gltf'
+            railing1: { src: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_TimberA.glb', ios: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/usdz/Beam_TimberA.usdz' },
+            railing2: { src: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_TimberB.glb', ios: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/usdz/Beam_TimberB.usdz' },
+            railing3: { src: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_TimberC.glb', ios: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/usdz/Beam_TimberC.usdz' },
+            railing4: { src: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_TimberD.glb', ios: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/usdz/Beam_TimberD.usdz' },
+            railing5: { src: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_Reed.glb', ios: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/usdz/Beam_Reed.usdz' },
+            railing6: { src: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_Arel.glb', ios: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/usdz/Beam_Arel.usdz' },
+            railing7: { src: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_BoxRail.glb', ios: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/usdz/Beam_BoxRail.usdz' },
+            railing8: { src: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_Fiberline2.glb', ios: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/usdz/Beam_Fiberline2.usdz' },
+            railing9: { src: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_Glass2.glb', ios: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/usdz/Beam_Glass2.usdz' },
+            railing10: { src: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/Beam_Steel.glb', ios: 'https://cdn.jsdelivr.net/gh/tmuftee/aframe-bb/assets/Variations/usdz/Beam_Steel.usdz' }
         };
 
         // Add an event listener to the dropdown list
         railingSelect.addEventListener('change', (event) => {
-            const selectedValue = event.target.value;
-            modelViewer.src = modelSources[selectedValue];
+            const selected = modelSources[event.target.value];
+            modelViewer.src = selected.src;
+            modelViewer.iosSrc = selected.ios;
         });
     </script>
 </body>
